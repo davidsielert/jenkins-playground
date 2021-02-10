@@ -1,10 +1,24 @@
-node {
-    stage("Build") {
-        echo "Some code compilation here..."
-    }
+pipeline {
+    agent any
 
-    stage("Test") {
-        echo "Some tests execution here..."
-        echo 1
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                sh 'terraform init'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                sh 'terraform validate'
+                
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
 }
