@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Setup') {
             steps {
                 echo 'Building..'
                 sh 'terraform init'
@@ -15,10 +15,10 @@ pipeline {
                 
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+        // stage('Deploy') {
+        //     steps {
+        //         echo 'Deploying....'
+        //     }
+        // }
     }
 }
